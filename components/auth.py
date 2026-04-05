@@ -16,9 +16,12 @@ def init_auth():
 
 def require_login():
     auth = init_auth()
-    name, status, username = auth.login("Login", "main")
+    auth.login(location="main")
+    if not st.session_state.get("authentication_status"):
+        st.warning("Por favor, faça login.")
+        st.stop()
 
-    if not status:
-        st.stop()  # Bloqueia o resto da página
-
-    return name, username
+    return (
+        st.session_state.get("name"),
+        st.session_state.get("username")
+    )
