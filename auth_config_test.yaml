@@ -1,0 +1,10 @@
+# auth_config_test.yaml
+credentials:
+  usernames:
+    teste:
+      name: Jefferson Freitas
+      password: $2b$12$9.LWlb2.vSFdWQY9xNlXOej3jTm/kqxlXwhy7tDlvDUbTpufBU5ce
+cookie:
+  name: jarvispy
+  key: abcABC123*
+  expiry_days: 30

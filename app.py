@@ -1,11 +1,19 @@
 import streamlit as st
+from components.auth import require_login
 
-st.set_page_config(page_title="Meu Hello World", page_icon="👋")
+st.set_page_config(page_title="JarvisPy", layout="wide", page_icon="🏠")
 
-st.title("Hello, World! 👋")
-st.write("Meu primeiro app no Streamlit Community Cloud!")
+name, username = require_login()
 
-nome = st.text_input("Qual o seu nome?")
+st.title(f"Bem-vindo, {name} 👋")
 
-if nome:
-    st.success(f"Olá, {nome}! Seja bem-vindo 🎉")
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.metric("Saldo Total", "R$ 8.450", "+R$ 320 este mês")
+
+with col2:
+    st.metric("Carteira de Ações", "R$ 12.300", "+2,4%")
+
+with col3:
+    st.metric("Notícias não lidas", "14", "3 novas")
